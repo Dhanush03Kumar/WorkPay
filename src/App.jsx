@@ -4,10 +4,12 @@ import "./App.css";
 function App(){
   const [hours,setHours] = useState("");
   const [rate,setRate] = useState("");
-  const [total,setTotal] = useState(null);
+  const [overTimeEnabled,setOverTimeEnabled]=useState(false);
   const [overTimeHours,setOverTimeHours]=useState("");
   const [overTimeRate,setOverTimeRate]=useState("");
   const [error,setError]=useState("");
+  const [total,setTotal] = useState(null);
+
 
   const calculateWage = () => {
     setError("");
@@ -25,43 +27,62 @@ function App(){
 
 
   return(
-    <div className="container">
+    <div className="calculator-container">
       <h2>Daily wage Calculator</h2>
+      <div className="input-group">
+      <label>Working Hours: </label>
       <input
       type="number"
       placeholder="Enter your working hour"
       value={hours}
       onChange={(e)=>setHours(e.target.value)}
       />
-      <br/>
+      </div>
+      <div className="input-group">
+      <label>Hourly Rate: </label>
       <input
       type="number"
       placeholder="Enter your rate"
       value={rate}
       onChange={(e)=>setRate(e.target.value)}
       />
-      <br />
+      </div>
+      <div className="input-group checkbox-group">
+      <label>
+      <input
+      type="checkbox"
+      checked={overTimeEnabled}
+      onChange={()=>setOverTimeEnabled(!overTimeEnabled)}
+      />Did overtime?</label>
+      </div>
+      {overTimeEnabled&& (
+      <>
+      <div className="input-group">
+      <label>OverTime Hours: </label>
       <input
       type="number"
       placeholder="Enter overtime hours"
       value={overTimeHours}
       onChange={(e)=>setOverTimeHours(e.target.value)}
       />
-      <br />
+      </div>
+      <div className="input-group">
+      <label>OverTime Rate: </label>
       <input
       type="number"
       placeholder="Enter overtime rate"
       value={overTimeRate}
       onChange={(e)=>setOverTimeRate(e.target.value)}
       />
-      <br />
-      <button onClick={calculateWage}>Calculate</button>
+      </div>
+      </>
+      )}
+      
+      <button onClick={calculateWage} disabled={hours===""||rate===""}>Calculate</button>
 
       {error && <p className="error">{error}</p>}
 
-      <h3 className="result"> 
-        {total!=null? `Total Wage: ${total}`:""}
-      </h3>
+      {total && <h3>Total Pay: {total}</h3>}
       
     </div>
     
