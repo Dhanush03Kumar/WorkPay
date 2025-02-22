@@ -1,8 +1,13 @@
-# React + Vite
+# WorkPay - Smart Wage & Earnings Tracker  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WorkPay is a simple yet powerful application that helps individuals and businesses track daily wages, earnings, and financial records. This project will evolve over time to include more features like income visualization, work tracking, and expense management.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- ✅ Calculate daily wages based on working hours and rates  
+- ✅ User-friendly interface for quick entries  
+- ✅ Future scope: Expense tracking, reports, and analytics  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🏗️ Tech Stack
+- **Frontend:** React, Vite, Tailwind CSS  
+- **Backend (Future Scope):** Node.js, Express, MongoDB  
+- **Testing:** Jest, Cypress (for UI testing)  
