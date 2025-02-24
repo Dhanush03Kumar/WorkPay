@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Header from "./components/Header";
 
 function App(){
   const [hours,setHours] = useState("");
@@ -27,10 +28,13 @@ function App(){
 
 
   return(
+    <>
+    <Header/>
     <div className="calculator-container">
+      
       <h2>Daily wage Calculator</h2>
       <div className="input-group">
-      <label>Working Hours: </label>
+      <label>Working Hours </label>
       <input
       type="number"
       placeholder="Enter your working hour"
@@ -39,7 +43,7 @@ function App(){
       />
       </div>
       <div className="input-group">
-      <label>Hourly Rate: </label>
+      <label>Hourly Rate </label>
       <input
       type="number"
       placeholder="Enter your rate"
@@ -58,7 +62,7 @@ function App(){
       {overTimeEnabled&& (
       <>
       <div className="input-group">
-      <label>OverTime Hours: </label>
+      <label>OverTime Hours </label>
       <input
       type="number"
       placeholder="Enter overtime hours"
@@ -67,7 +71,7 @@ function App(){
       />
       </div>
       <div className="input-group">
-      <label>OverTime Rate: </label>
+      <label>OverTime Rate </label>
       <input
       type="number"
       placeholder="Enter overtime rate"
@@ -82,9 +86,10 @@ function App(){
 
       {error && <p className="error">{error}</p>}
 
-      {total && <h3>Total Pay: {total}</h3>}
+      {total && <h3 className="result">Total Pay: {total}</h3>}
       
     </div>
+    </>
     
 
 
